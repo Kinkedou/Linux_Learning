@@ -6,55 +6,30 @@
 #include <unistd.h>
 #include <QDebug>
 
+static int fd;
+
 void led_init(void)
 {
-    int fd;
 
-    fd = open("/sys/class/gpio/export",O_WRONLY);
+    fd = open("/dev/100ask_led",O_RDWR);
     if (fd<0)
     {
-        qDebug()<<"open /sys/class/gpio/export err";
-        return ;
+        qDebug()<<"open /dev/100ask err";
     }
         write(fd,"131\n",4);
-
-    close(fd);
-
-
-    fd = open("/sys/class/gpio/gpio131/direction",O_WRONLY);
-    if (fd<0)
-    {
-        qDebug()<<"open /sys/class/gpio/gpio131/direction err";
-        return ;
-    }
-
-    else
-        write(fd,"out\n",4);
-
-    close(fd);
 }
 
 void led_control(int on)
 {
-    static int fd=-1;
-
-    if (fd==-1)
-    {
-        fd = open("/sys/class/gpio/gpio131/value",O_RDWR);
-    }
-
-
-    if (fd<0)
-    {
-        qDebug()<<"/sys/class/gpio/gpio131/value err";
-        return ;
-    }
+    char buf[2];
+    buf[0]=0;
     if(on)
     {
-        write(fd,"0\n",2);
+        buf[1]=0;
     }
     else
     {
-        write(fd,"1\n",2);
+        buf[1]=1;
     }
+    write(fd,buf,2);
 }

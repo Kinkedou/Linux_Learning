@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    labelHumi=this->findChild<QLabel*>("label");
+    labelTemp=this->findChild<QLabel*>("label_2");
 }
 
 MainWindow::~MainWindow()
@@ -15,10 +17,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+QLabel *MainWindow::GetHumiLabel()
+{
+    return labelHumi;
+}
+QLabel *MainWindow::GetTempLabel()
+{
+    return labelTemp;
+}
+
 void MainWindow:: on_pushButton_clicked()
 {
     static int status=1;
-qDebug()<<"LED cilcked on";
     if(status)
     {
         qDebug()<<"LED cilcked on";

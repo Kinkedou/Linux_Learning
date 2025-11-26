@@ -16,11 +16,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dht11.cpp \
+    dht11_thread.cpp \
     led.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    dht11.h \
+    dht11_thread.h \
     led.h \
     mainwindow.h
 
