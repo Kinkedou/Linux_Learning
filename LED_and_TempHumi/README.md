@@ -1,6 +1,6 @@
 Linux软件开发学习记录
 
-01，02分别为给定的led、温湿度传感器驱动程序
+01，02分别为给定的led、温湿度传感器驱动程序、tcp编程库，LED_and_TempHumi为未拆分前后台的程序，LED_and_TempHumi_client为拆分后的服务器端
 
 2025.11.25
 通过GPIO_SYSFS操作LED 在QT中编写app程序，通过程序直接操作GPIO_SYSFS，进而控制LED的亮灭
@@ -12,4 +12,5 @@ Linux软件开发学习记录
 利用jason-rpc将程序拆分为前后台，/json-rpc_control_hardware/rpc_server实现了服务器端的功能，LED_and_TempHumi_client/LED_and_TempHumi中实现了客户端功能，客户端通过rpc_led_control和rpc_dht11_read发起远程调用，服务器端收到后写入LED，读取temp和humi，并将读取到的温湿度返回客户端，在客户端UI界面进行显示
 
 2025.12.12
-开发手机端控制平台，通过MQTT订阅和发布方式，发送接收JSON数据包，与rpc服务器交互通信，实现控制LED开关，读取温湿度值的功能
+设计手机端控制平台，通过MQTT订阅和发布方式，发送接收JSON数据包，与rpc服务器交互通信，实现控制LED开关，读取温湿度值的功能(课程中使用腾讯云平台，由于收费限制改为采用ONENET物联网云平台)
+智能家居产品设计学习正式结束
