@@ -1,6 +1,6 @@
 Linux软件开发学习记录
 
-01，02分别为给定的led、温湿度传感器驱动程序、tcp编程库，LED_and_TempHumi为未拆分前后台的程序，LED_and_TempHumi_client为拆分后的服务器端
+01，02分别为给定的led、温湿度传感器驱动程序、tcp编程库，LED_and_TempHumi为未拆分前后台的程序，LED_and_TempHumi_client为拆分后的客户端，json-rpc为json库文件，json_test为json编程测试文件，json-rpc——control_hardware为控制硬件的服务器后端程序，mqtt_device_wechat为与手机端和服务器后端交互的mqtt程序
 
 2025.11.25
 通过GPIO_SYSFS操作LED 在QT中编写app程序，通过程序直接操作GPIO_SYSFS，进而控制LED的亮灭
