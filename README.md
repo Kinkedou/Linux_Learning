@@ -1,6 +1,9 @@
 # Linux_Learning
 
-LED_and_TempHumi为一个简单的Linux嵌入式软件开发小项目，分别通过imx6ull pro开发板触控屏UI界面和手机ONENET云平台与开发板通信，实现控制LED开关、温湿度读取的功能
+ 本项目是一个综合性的嵌入式Linux自学小项目，旨在通过多种终端远程控制i.MX6ULL Pro开发板的硬件。系统采用RPC（远程过程调用）架构，并以JSON格式进行数据交互。
+ 本地控制端（RPC Client）： 在开发板触摸屏上设计了UI界面，作为RPC客户端，实现对硬件（LED、温湿度传感器）的本地实时控制与状态监控。
+ 远程控制端（MQTT Client）： 设备作为MQTT客户端接入OneNET云平台，通过手机APP下发指令，实现对硬件的远程控制。
+ 硬件服务端（RPC Server）： 运行于开发板底层，负责接收并执行来自本地UI或云平台的指令，完成对LED的开关控制及温湿度数据的采集与回传。
 
 2025.11.25 创建LED_and_TempHumi
 
